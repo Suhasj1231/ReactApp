@@ -1,9 +1,9 @@
-const App = ()=> {
+const App2 = ()=> {
   return (
-    <h1> this is the start-up page of app 1  </h1>
+    <h1> this is the start-up page of app 2  </h1>
   )
 }
-export default App
+export default App2
 
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
