@@ -26,12 +26,10 @@ const Resume = () => {
       </section>
       <hr></hr>
       <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Education</h2>
         <Education educations={education} />
       </section>
       <hr></hr>
       <section>
-        <h2 className="text-2xl font-bold mb-4">Skills</h2>
         <Skills skills={skills} />
       </section>
     </div>
