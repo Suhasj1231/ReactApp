@@ -5,28 +5,68 @@ import Education from './Education';
 import Experience from './Experience';
 import resumeData from '../data';
 
+// const Resume = () => {
+//   const { name, email, phone, summary, experience, education, skills } = resumeData;
+
+//   return (
+//     <div className="container border border-gray-300 shadow-2xl mt-4 mx-auto px-4 py-8 sm:w-1/2">  {/* Tailwind classes for layout */}
+//       <header className="flex flex-col sm:flex sm:flex-row justify-between items-center mb-8">
+//         <h1 className="text-3xl font-bold">{name}</h1>
+//         <p className="text-gray-600">{email} | {phone}</p>
+//       </header>
+//       <hr></hr>
+//       <section className="mb-8">
+//         <h2 className="text-2xl font-bold mb-4">Summary</h2>
+//         <p className="text-gray-700">{summary}</p>
+//       </section>
+//       <hr></hr>
+//       <section className="mb-8">
+//         <Experience experience={experience} />
+//       </section>
+//       <hr></hr>
+//       <section className="mb-8">
+//         <Education education={education} />
+//       </section>
+//       <hr></hr>
+//       <section>
+//         <Skills skills={skills} />
+//       </section>
+//     </div>
+//   );
+// };
+
+// import React from 'react';
+
 const Resume = () => {
   const { name, email, phone, summary, experience, education, skills } = resumeData;
 
   return (
-    <div className="container border border-gray-300 shadow-2xl mt-4 mx-auto px-4 py-8 sm:w-1/2">  {/* Tailwind classes for layout */}
+    <div className="container border border-gray-300 shadow-2xl mt-4 mx-auto px-4 py-8 sm:w-1/2">
       <header className="flex flex-col sm:flex sm:flex-row justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">{name}</h1>
-        <p className="text-gray-600">{email} | {phone}</p>
+        {name && (
+          <h1 className="text-3xl font-bold">{name}</h1>
+        )}
+        {(email || phone) && (
+          <p className="text-gray-600">
+            {email && `${email} | `}
+            {phone && phone}
+          </p>
+        )}
       </header>
       <hr></hr>
+      {summary && (
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">Summary</h2>
+          <p className="text-gray-700">{summary}</p>
+        </section>
+      )}
+      <hr></hr>
       <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Summary</h2>
-        <p className="text-gray-700">{summary}</p>
+        <Experience experience={experience} />
       </section>
       <hr></hr>
       <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Experience</h2>
-        <Experience experiences={experience} />
-      </section>
-      <hr></hr>
-      <section className="mb-8">
-        <Education educations={education} />
+        <Education education={education} />
       </section>
       <hr></hr>
       <section>
