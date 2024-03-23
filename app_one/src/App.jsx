@@ -1,22 +1,31 @@
-import Child from "./components/two/Child"
-import Parent from "./components/two/Parent"
+import Parent from './components/02/Parent'
+import Child from './components/02/Child'
 
-const App = ()=> {
+import ListStyle from './components/03/ListStyle'
+import MouseEvents from './components/04/MouseEvents'
+
+
+const App = () => {
   return (
     <>
-    <div>
-      <h1 className="text-3xl text-center" >
-        app one : revise the react.js concepts
-      </h1>
-      <hr className="my-4 "></hr>
+      <div>
+        <h1 className="text-3xl text-center" >
+          app one : revise the react.js concepts
+        </h1>
+        <hr className="my-4 "></hr>
 
-      <Parent styleToChild={'border-solid border-4 border-sky-500 bg-red-400'} >
-        <Child></Child>
-      </Parent>
+        <Parent styleToChild={'border-solid border-4 border-sky-500 bg-red-400'} >
+          <Child></Child>
+        </Parent>
 
-    
 
-    </div>
+        <ListStyle liststyle={'list-decimal'} ></ListStyle>
+
+        <MouseEvents></MouseEvents>
+
+
+
+      </div>
     </>
   )
 }
