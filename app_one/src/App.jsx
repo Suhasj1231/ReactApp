@@ -2,8 +2,10 @@ import Parent from './components/02/Parent'
 import Child from './components/02/Child'
 
 import ListStyle from './components/03/ListStyle'
-import MouseEvents from './components/04/MouseEvents'
 
+import MouseEvents from './components/04/MouseEvents'
+import Element from './components/04/Element'
+import MyComponent from './components/04/MyComponent'
 
 const App = () => {
   return (
@@ -23,6 +25,9 @@ const App = () => {
 
         <MouseEvents></MouseEvents>
 
+        <MyComponent> <Element></Element> </MyComponent>
+
+
 
 
       </div>
@@ -30,3 +35,4 @@ const App = () => {
   )
 }
 export default App
+
