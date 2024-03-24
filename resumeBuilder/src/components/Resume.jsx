@@ -4,6 +4,8 @@ import Skills from './Skills';
 import Education from './Education';
 import Experience from './Experience';
 import resumeData from '../data';
+import { TiPrinter } from "react-icons/ti";
+
 
 // const Resume = () => {
 //   const { name, email, phone, summary, experience, education, skills } = resumeData;
@@ -40,6 +42,12 @@ import resumeData from '../data';
 const Resume = () => {
   const { name, email, phone, summary, experience, education, skills } = resumeData;
 
+  // Function to handle printing
+  const handlePrint = () => {
+    window.print();
+  };
+
+
   return (
     <div className="container border border-gray-300 shadow-2xl mt-4 mx-auto px-4 py-8 sm:w-1/2">
       <header className="flex flex-col sm:flex sm:flex-row justify-between items-center mb-8">
@@ -52,7 +60,15 @@ const Resume = () => {
             {phone && phone}
           </p>
         )}
+        {/* <button> </button> */}
       </header>
+      <div className='flex flex-row-reverse my-2 ' >
+      <button className='bg-gray-300 size-10 text-center rounded-full
+
+' onClick={handlePrint}> <TiPrinter className='mx-auto size-6' />
+  </button>
+
+      </div>
       <hr></hr>
       {summary && (
         <section className="mb-8">
