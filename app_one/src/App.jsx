@@ -7,6 +7,8 @@ import MouseEvents from './components/04/MouseEvents'
 import Element from './components/04/Element'
 import MyComponent from './components/04/MyComponent'
 
+import DigClock from './components/05/DigClock'
+
 const App = () => {
   return (
     <>
@@ -26,6 +28,9 @@ const App = () => {
         <MouseEvents></MouseEvents>
 
         <MyComponent> <Element></Element> </MyComponent>
+
+        <DigClock></DigClock>
+
 
 
 
