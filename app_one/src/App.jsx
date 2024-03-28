@@ -9,6 +9,8 @@ import MyComponent from './components/04/MyComponent'
 
 import DigClock from './components/05/DigClock'
 
+import Dropdown from './components/06/Dropdown'
+
 const App = () => {
   return (
     <>
@@ -30,6 +32,8 @@ const App = () => {
         <MyComponent> <Element></Element> </MyComponent>
 
         <DigClock></DigClock>
+
+        <Dropdown></Dropdown>
 
 
 
