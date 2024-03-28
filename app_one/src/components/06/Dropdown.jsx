@@ -66,7 +66,10 @@ const Dropdown = () => {
   const [selectedNation, setSelectedNation] = useState(null);
 
   const handleAddNation = () => {
-    if (!newCountryName || !newCountryCode) return; // Check for empty fields
+    // if (!newCountryName || !newCountryCode) return;// Check for empty fields
+    if (!newCountryName || !newCountryCode) {
+      alert('enter the complete details ')
+    }// Check for empty fields
 
     const newNation = {
       name: newCountryName,
@@ -85,7 +88,7 @@ const Dropdown = () => {
   };
 
   return (
-    <div>
+    <div className='bg-orange-200 w-1/2  p-4 my-4 mx-auto ' >
       <h2>Nations Dropdown</h2>
       <select onChange={handleSelectChange} value={selectedNation?.value || ''}>
         <option value="">Select a nation</option>

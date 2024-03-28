@@ -10,6 +10,7 @@ import MyComponent from './components/04/MyComponent'
 import DigClock from './components/05/DigClock'
 
 import Dropdown from './components/06/Dropdown'
+import SearchableList from './components/06/SearchableList'
 
 const App = () => {
   return (
@@ -35,10 +36,20 @@ const App = () => {
 
         <Dropdown></Dropdown>
 
+        <SearchableList></SearchableList>
 
 
 
 
+
+
+
+
+
+
+
+
+        <div className='h-24' ></div>
       </div>
     </>
   )
