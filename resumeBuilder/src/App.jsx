@@ -1,10 +1,19 @@
 import React from 'react';
 import Resume from './components/Resume';
+import EditCredentials from './components/EditCredentials';
+import resumeData from './data';
 
 function App() {
+  const { name, email, phone, summary, experience, education, projects,skills } = resumeData;
+
+  function handleOnSave(){
+    console.log('saved');
+  }
+
   return (
     <div className="App">
       <Resume />
+      {/* <EditCredentials initialData={resumeData} onSave={handleOnSave} ></EditCredentials> */}
 
     </div>
   );

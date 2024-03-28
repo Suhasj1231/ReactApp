@@ -4,7 +4,10 @@ import Skills from './Skills';
 import Education from './Education';
 import Experience from './Experience';
 import resumeData from '../data';
+import Projects from './Projects';
 import { TiPrinter } from "react-icons/ti";
+import { FaEdit } from "react-icons/fa";
+import EditCredentials from './EditCredentials';
 
 
 // const Resume = () => {
@@ -40,7 +43,7 @@ import { TiPrinter } from "react-icons/ti";
 // import React from 'react';
 
 const Resume = () => {
-  const { name, email, phone, summary, experience, education, skills } = resumeData;
+  const { name, email, phone, summary, experience, education, projects,skills } = resumeData;
 
   // Function to handle printing
   const handlePrint = () => {
@@ -67,6 +70,10 @@ const Resume = () => {
 
 ' onClick={handlePrint}> <TiPrinter className='mx-auto size-6' />
   </button>
+      <button className='bg-gray-300 size-10 text-center rounded-full
+
+' onClick={()=>console.log('can edit the form ')}> <FaEdit className='mx-auto size-6 gap-2' />
+  </button>
 
       </div>
       <hr></hr>
@@ -79,6 +86,10 @@ const Resume = () => {
       <hr></hr>
       <section className="mb-8">
         <Experience experience={experience} />
+      </section>
+      <hr></hr>
+      <section className='mb-8'>
+        <Projects projects={projects} ></Projects>
       </section>
       <hr></hr>
       <section className="mb-8">
