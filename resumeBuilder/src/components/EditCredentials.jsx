@@ -1,15 +1,23 @@
 
 import React, { useState } from 'react';
 
-const EditCredentials = ({ initialData, onSave }) => {
-  const [formData, setFormData] = useState(initialData);
+const EditCredentials = ({ initialData, setData ,  onSave }) => {
+  // const [formData, setFormData] = useState(initialData);
+  const { name, email, phone, summary, experience, education, projects,skills } = initialData;
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setData({
+      ...initialData,
       [name]: value,
     });
+    // setFormData({
+    //   ...formData,
+    //   [name]: value,
+    // });
+    
   };
 
   const handleSubmit = (e) => {
@@ -18,7 +26,8 @@ const EditCredentials = ({ initialData, onSave }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container border border-gray-300 shadow-2xl mt-4 mx-auto px-4 py-8 sm:w-1/2">
+
       <h2 className="text-2xl font-bold mb-4">Edit Credentials</h2>
       <form onSubmit={handleSubmit}>
         {/* Name */}
@@ -28,7 +37,8 @@ const EditCredentials = ({ initialData, onSave }) => {
             type="text"
             id="name"
             name="name"
-            value={formData.name}
+            // value={formData?.name}
+            value={!name?'':name}
             onChange={handleChange}
             className="border rounded px-3 py-2 w-full"
             placeholder="Enter your name"
@@ -41,7 +51,8 @@ const EditCredentials = ({ initialData, onSave }) => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            // value={formData?.email}
+            value={!email?'':email}
             onChange={handleChange}
             className="border rounded px-3 py-2 w-full"
             placeholder="Enter your email"
@@ -54,7 +65,8 @@ const EditCredentials = ({ initialData, onSave }) => {
             type="tel"
             id="phone"
             name="phone"
-            value={formData.phone}
+            // value={formData?.phone}
+            value={!phone?'':phone}
             onChange={handleChange}
             className="border rounded px-3 py-2 w-full"
             placeholder="Enter your phone number"
@@ -66,7 +78,8 @@ const EditCredentials = ({ initialData, onSave }) => {
           <textarea
             id="summary"
             name="summary"
-            value={formData.summary}
+            // value={formData?.summary}
+            value={!summary?'':summary}
             onChange={handleChange}
             className="border rounded px-3 py-2 w-full"
             placeholder="Enter your summary"
@@ -88,7 +101,8 @@ const EditCredentials = ({ initialData, onSave }) => {
         {/* <div> */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Experience</label>
-          {formData.experience.map((exp, index) => (
+          {/* {formData?.experience.map((exp, index) => ( */}
+          {experience.year?experience.map((exp, index) => (
             <div key={index} className="mb-2">
               <input
                 type="number"
@@ -96,7 +110,7 @@ const EditCredentials = ({ initialData, onSave }) => {
                 value={exp.year}
                 onChange={(e) => handleChange(e, index)}
                 className="border rounded px-3 py-2 mr-2"
-                placeholder="Year"
+                placeholder="number of Years"
               />
               <input
                 type="text"
@@ -112,37 +126,38 @@ const EditCredentials = ({ initialData, onSave }) => {
                 value={exp.role}
                 onChange={(e) => handleChange(e, index)}
                 className="border rounded px-3 py-2 mr-2"
-                placeholder="Role"
+                placeholder="Role and period"
               />
             </div>
-          ))}
+          )) : null}
           <div  className="mb-2">
               <input
                 type="number"
                 name="year"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
-                placeholder="Year"
+                placeholder="number of Years"
               />
               <input
                 type="text"
                 name="company"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                // onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Company"
               />
               <input
                 type="text"
                 name="role"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={ handleChange}
                 className="border rounded px-3 py-2 mr-2"
-                placeholder="Role"
+                placeholder="Role and period"
               />
             </div>
-          <button type="button" onClick={()=>console.log('experience added')} className="bg-blue-500 text-white px-4 py-2 rounded">Add Experience</button>
+          <button type="button" onClick={()=>{console.log('experience updated ')}} className="bg-blue-500 text-white px-4 py-2 rounded">Add Experience</button>
         </div>
             
         {/* </div> */}
@@ -164,13 +179,14 @@ const EditCredentials = ({ initialData, onSave }) => {
 
 <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Projects</label>
-          {formData.projects.map((project, index) => (
+          {/* {formData?.projects.map((project, index) => ( */}
+          {projects.name?projects.map((project, index) => (
             <div key={index} className="mb-2">
               <input
                 type="text"
                 name="name"
                 value={project.name}
-                onChange={(e) => handleChange(e, index)}
+                onChange={ handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Name"
               />
@@ -178,26 +194,26 @@ const EditCredentials = ({ initialData, onSave }) => {
                 type="text"
                 name="desc"
                 value={project.desc}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Description"
               />
             </div>
-          ))}
+          )) : null}
           <div className="mb-2">
               <input
                 type="text"
                 name="name"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Name"
               />
               <input
                 type="text"
                 name="desc"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Description"
               />
@@ -221,13 +237,14 @@ const EditCredentials = ({ initialData, onSave }) => {
         </div> */}
          <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Education</label>
-          {formData.education.map((edu, index) => (
+          {/* {formData?.education.map((edu, index) => ( */}
+          {education.institution?education.map((edu, index) => (
             <div key={index} className="mb-2">
               <input
                 type="text"
                 name="institution"
                 value={edu.institution}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Institution"
               />
@@ -235,7 +252,7 @@ const EditCredentials = ({ initialData, onSave }) => {
                 type="text"
                 name="degree"
                 value={edu.degree}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Degree"
               />
@@ -243,34 +260,34 @@ const EditCredentials = ({ initialData, onSave }) => {
                 type="number"
                 name="graduationYear"
                 value={edu.graduationYear}
-                onChange={(e) => handleChange(e, index)}
+                onChange={ handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Graduation Year"
               />
             </div>
-          ))}
+          )):null }
           <div  className="mb-2">
               <input
                 type="text"
                 name="institution"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Institution"
               />
               <input
                 type="text"
                 name="degree"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Degree"
               />
               <input
                 type="number"
                 name="graduationYear"
-                value={''}
-                onChange={(e) => handleChange(e, index)}
+                value={undefined}
+                onChange={ handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Graduation Year"
               />
@@ -295,16 +312,17 @@ const EditCredentials = ({ initialData, onSave }) => {
          <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Skills</label>
           <ul className="mt-2">
-            {formData.skills.map((skill, index) => (
+            {/* {formData?.skills.map((skill, index) => ( */}
+            {skills.length > 0 ?skills.map((skill, index) => (
               <li key={index} className="mb-2">{skill}</li>
-            ))}
+            )):null}
           </ul>
           <div className="flex items-center">
             <input
               type="text"
               name="newSkill"
-              value={''}
-              onChange={(e) => setNewSkill(e.target.value)}
+              value={undefined}
+              onChange={ handleChange}
               className="border rounded px-3 py-2 mr-2"
               placeholder="Add new skill"
             />

@@ -2,6 +2,11 @@ import React from 'react';
 import Resume from './components/Resume';
 import EditCredentials from './components/EditCredentials';
 import resumeData from './data';
+import { useState } from 'react';
+import { FaEye } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+
+
 
 function App() {
   const { name, email, phone, summary, experience, education, projects,skills } = resumeData;
@@ -10,9 +15,34 @@ function App() {
     console.log('saved');
   }
 
+  const [ResumeView , setResumeView] = useState(true);
+  const [Data , setData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      summary: "",
+      experience: [
+        { year:0 , company: "", role: " " },
+      ],
+      
+      projects : [
+        { "name" :"" ,
+         "desc" : ""},
+      ],
+      education: [
+        { institution: "", degree: "", graduationYear: 0 },
+      ],
+      skills: [], // Unlimited skills
+    
+  });
+
+
   return (
     <div className="App">
-      <Resume />
+      <button onClick={ ()=>setResumeView(!ResumeView)}> {ResumeView ?  <FaEdit/> : <FaEye /> 
+} </button>
+      {ResumeView ? <Resume details={Data} ></Resume> : <EditCredentials initialData={Data}  setData={setData} onSave={handleOnSave} ></EditCredentials> }
+      {/* <Resume /> */}
       {/* <EditCredentials initialData={resumeData} onSave={handleOnSave} ></EditCredentials> */}
 
     </div>
