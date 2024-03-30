@@ -5,6 +5,7 @@ import resumeData from './data';
 import { useState } from 'react';
 import { FaEye } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import ResumeForm from './components/ResumeForm';
 
 
 
@@ -13,24 +14,15 @@ function App() {
 
 
   const [ResumeView , setResumeView] = useState(true);
-  const [Data , setData] = useState({
-      name: "",
-      email: "",
-      phone: "",
-      summary: "",
-      experience: [
-        { year:0 , company: "", role: " " },
-      ],
-      
-      projects : [
-        { "name" :"" ,
-         "desc" : ""},
-      ],
-      education: [
-        { institution: "", degree: "", graduationYear: 0 },
-      ],
-      skills: [], // Unlimited skills
-    
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    summary: '',
+    experience: [{ year: '', company: '', role: '' }],
+    projects: [{ name: '', desc: '' }],
+    education: [{ institution: '', degree: '', graduationYear: '' }],
+    skills: ['']
   });
 
 
@@ -38,7 +30,8 @@ function App() {
     <div className="App">
       <button onClick={ ()=>setResumeView(!ResumeView)}> {ResumeView ?  <FaEdit/> : <FaEye /> 
 } </button>
-      {ResumeView ? <Resume details={resumeData} ></Resume> : <EditCredentials initialData={resumeData}  setData={setData}  ></EditCredentials> }
+      {/* {ResumeView ? <Resume details={resumeData} ></Resume> : <EditCredentials initialData={resumeData}  setData={setData}  ></EditCredentials> } */}
+      {ResumeView ? <Resume details={userData} ></Resume> : <ResumeForm details={userData} setUserData={setUserData} ></ResumeForm>}
       {/* <Resume /> */}
       {/* <EditCredentials initialData={resumeData} onSave={handleOnSave} ></EditCredentials> */}
 
