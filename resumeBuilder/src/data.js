@@ -8,7 +8,6 @@
       { year: 2018, company: "Company B", role: "Web Developer" },
       { year: 2016, company: "Company C", role: "Intern" }, // Limit to 3 items
     ],
-    
     projects : [
       { "name" :"blog app" ,
        "desc" : "helps people to share and read blogs "},

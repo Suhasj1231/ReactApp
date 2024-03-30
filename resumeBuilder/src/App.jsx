@@ -11,9 +11,6 @@ import { FaEdit } from "react-icons/fa";
 function App() {
   const { name, email, phone, summary, experience, education, projects,skills } = resumeData;
 
-  function handleOnSave(){
-    console.log('saved');
-  }
 
   const [ResumeView , setResumeView] = useState(true);
   const [Data , setData] = useState({
@@ -41,7 +38,7 @@ function App() {
     <div className="App">
       <button onClick={ ()=>setResumeView(!ResumeView)}> {ResumeView ?  <FaEdit/> : <FaEye /> 
 } </button>
-      {ResumeView ? <Resume details={Data} ></Resume> : <EditCredentials initialData={Data}  setData={setData} onSave={handleOnSave} ></EditCredentials> }
+      {ResumeView ? <Resume details={resumeData} ></Resume> : <EditCredentials initialData={resumeData}  setData={setData}  ></EditCredentials> }
       {/* <Resume /> */}
       {/* <EditCredentials initialData={resumeData} onSave={handleOnSave} ></EditCredentials> */}
 

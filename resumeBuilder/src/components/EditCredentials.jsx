@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-const EditCredentials = ({ initialData, setData ,  onSave }) => {
+const EditCredentials = ({ initialData, setData  }) => {
   // const [formData, setFormData] = useState(initialData);
   const { name, email, phone, summary, experience, education, projects,skills } = initialData;
 
@@ -13,16 +13,11 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
       ...initialData,
       [name]: value,
     });
-    // setFormData({
-    //   ...formData,
-    //   [name]: value,
-    // });
     
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
   };
 
   return (
@@ -85,30 +80,16 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
             placeholder="Enter your summary"
           />
         </div>
-        {/* Experience
+        {/* Experience */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="experience">Experience</label>
-          <textarea
-            id="experience"
-            name="experience"
-            value={formData.experience}
-            onChange={handleChange}
-            className="border rounded px-3 py-2 w-full"
-            placeholder="Enter your experience"
-          />
-        </div> */}
-
-        {/* <div> */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2">Experience</label>
-          {/* {formData?.experience.map((exp, index) => ( */}
-          {experience.year?experience.map((exp, index) => (
+          <label className="block text-gray-700 font-bold mb-2" htmlFor='experience' >Experience</label>
+          {experience.map((exp, index) => (
             <div key={index} className="mb-2">
               <input
                 type="number"
                 name="year"
                 value={exp.year}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="number of Years"
               />
@@ -116,7 +97,7 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
                 type="text"
                 name="company"
                 value={exp.company}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Company"
               />
@@ -124,12 +105,12 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
                 type="text"
                 name="role"
                 value={exp.role}
-                onChange={(e) => handleChange(e, index)}
+                onChange={handleChange}
                 className="border rounded px-3 py-2 mr-2"
                 placeholder="Role and period"
               />
             </div>
-          )) : null}
+          )) }
           <div  className="mb-2">
               <input
                 type="number"
@@ -159,24 +140,7 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
             </div>
           <button type="button" onClick={()=>{console.log('experience updated ')}} className="bg-blue-500 text-white px-4 py-2 rounded">Add Experience</button>
         </div>
-            
-        {/* </div> */}
-
-
-
         {/* Projects */}
-        {/* <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="projects">Projects</label>
-          <textarea
-            id="projects"
-            name="projects"
-            value={formData.projects}
-            onChange={handleChange}
-            className="border rounded px-3 py-2 w-full"
-            placeholder="Enter your projects"
-          />
-        </div> */}
-
 <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Projects</label>
           {/* {formData?.projects.map((project, index) => ( */}
@@ -220,21 +184,7 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
             </div>
           <button type="button" onClick={()=>console.log('project added')} className="bg-blue-500 text-white px-4 py-2 rounded">Add Project</button>
         </div>
-
-
-
         {/* Education */}
-        {/* <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="education">Education</label>
-          <textarea
-            id="education"
-            name="education"
-            value={formData.education}
-            onChange={handleChange}
-            className="border rounded px-3 py-2 w-full"
-            placeholder="Enter your education"
-          />
-        </div> */}
          <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Education</label>
           {/* {formData?.education.map((edu, index) => ( */}
@@ -294,21 +244,7 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
             </div>
           <button type="button" onClick={()=>console.log('education edited')} className="bg-blue-500 text-white px-4 py-2 rounded">Add Education</button>
         </div>
-
-
         {/* Skills */}
-        
-        {/* <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="skills">Skills </label>
-          <textarea
-            id="skills"
-            name="skills"
-            value={formData.skills}
-            onChange={handleChange}
-            className="border rounded px-3 py-2 w-full"
-            placeholder="Enter your skills"
-          />
-        </div> */}
          <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Skills</label>
           <ul className="mt-2">
@@ -328,10 +264,7 @@ const EditCredentials = ({ initialData, setData ,  onSave }) => {
             />
             <button type="button" onClick={()=>console.log('skills edited')} className="bg-blue-500 text-white px-4 py-2 rounded">Add skills</button>
           </div>
-          
         </div>
-
-
         <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Save all details</button>
       </form>
     </div>
