@@ -11,6 +11,9 @@ import DigClock from './components/05/DigClock'
 
 import Dropdown from './components/06/Dropdown'
 import SearchableList from './components/06/SearchableList'
+import Counter from './components/07/Counter'
+import Window_measure from './components/08/Window_measure'
+import Window_size from './components/08/Window_size'
 
 const App = () => {
   return (
@@ -37,6 +40,12 @@ const App = () => {
         <Dropdown></Dropdown>
 
         <SearchableList></SearchableList>
+
+        <Counter></Counter>
+
+        <Window_measure></Window_measure>
+
+        <Window_size></Window_size>
 
 
 
